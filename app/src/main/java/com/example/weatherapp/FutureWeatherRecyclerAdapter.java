@@ -15,6 +15,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
+// recyclerview adapter
 public class FutureWeatherRecyclerAdapter extends RecyclerView.Adapter<FutureWeatherRecyclerAdapter.Holder> {
 
     private ArrayList<String[]> futurerWeathersList = new ArrayList<>();

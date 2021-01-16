@@ -42,6 +42,8 @@ public class CityTempFragment extends Fragment {
         highLowTemperature = view.findViewById(R.id.highLowTemperature);
         weatherCondition = view.findViewById(R.id.weatherCondition);
         cityName = view.findViewById(R.id.cityName);
+
+        // show current weather
         cityTempViewModel = new ViewModelProvider(this).get(getCityTemperatureViewModel.class);
         cityTempViewModel.GetCurrentCitytempinfo(cityCode);
         cityTempViewModel.gettempInfo().observe(getViewLifecycleOwner(), new Observer<ArrayList>() {
@@ -56,6 +58,8 @@ public class CityTempFragment extends Fragment {
                 cityName.setText(name);
             }
         });
+
+        // show following three days weather forecast
         RecyclerView recyclerView = view.findViewById(R.id.recyclerWeather);
         futureWeatherRecyclerAdapter = new FutureWeatherRecyclerAdapter(getContext());
         recyclerView.setAdapter(futureWeatherRecyclerAdapter);

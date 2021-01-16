@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         viewPager2 = findViewById(R.id.viewPager2);
+        // add four fragments to viewpager to swipe right or left
         ViewPageAdapter viewPageAdapter = new ViewPageAdapter(getSupportFragmentManager(),getLifecycle());
         viewPageAdapter.addFragment(new CityTempFragment(7839805,-37.4713,144.7852,"Melbourne"));
         viewPageAdapter.addFragment(new CityTempFragment(2147714,-33.8688,151.2093,"Sydney"));

@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
+// this view model is to get future days weather forecast
 public class GetCityfutureTempViewModel extends ViewModel {
     NetworkConnection networkConnection = new NetworkConnection();
     private MutableLiveData<ArrayList> tempInfo;
@@ -56,6 +57,7 @@ public class GetCityfutureTempViewModel extends ViewModel {
                 list = new ArrayList<>();
                 if (jsonArrayWeather != null && jsonArrayWeather.length() > 0 ){
                     for (int i = 1; i < jsonArrayWeather.length() ; i++) {
+                        // fetch data from open weather api and convert data to correct format
                         String[] weatherlist = new String[4];
                         JSONObject weatherInfo = jsonArrayWeather.getJSONObject(i);
                         Long UTCdate = weatherInfo.getLong("dt");

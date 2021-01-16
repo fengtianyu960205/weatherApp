@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+// this view model is to get current weather forecast
 public class getCityTemperatureViewModel extends ViewModel {
 
     NetworkConnection networkConnection = new NetworkConnection();
@@ -53,12 +54,12 @@ public class getCityTemperatureViewModel extends ViewModel {
                 list = new ArrayList<>();
                 if (jsonArrayWeather != null && jsonArrayWeather.length() > 0 ){
 
+                    // fetch data from open weather api and convert data to correct format
                     JSONObject weatherInfo = jsonArrayWeather.getJSONObject(0);
                     String weatherCondition = weatherInfo.getString("main");
                     Double currentTemp = jsonArrayTemperature.getDouble("temp");
                     Double highTemp = jsonArrayTemperature.getDouble("temp_max");
                     Double lowTemp = jsonArrayTemperature.getDouble("temp_min");
-
                     Double currentTempCelsius = currentTemp - 273.15;
                     Double highTempCelsius = highTemp - 273.15;
                     Double lowTempCelsius = lowTemp - 273.15;
